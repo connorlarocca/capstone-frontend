@@ -1,21 +1,3 @@
-// export function RestaurantsIndex(props) {
-//   return (
-//     <div>
-//       <h1>All Restaurants</h1>
-//       {props.restaurants.map((restaurant) => (
-//         <div key={restaurant.id}>
-//           <h2>{restaurant.name}</h2>
-//           <img src={restaurant.image_url} />
-//           <p>Phone Number: {restaurant.phone_number}</p>
-//           <p>Website: {restaurant.website}</p>
-//           <button onClick={() => props.onShowRestaurant(restaurant)}>
-//             More Info
-//           </button>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
 export function RestaurantsIndex(props) {
   console.log(props);
   return (
@@ -33,16 +15,15 @@ export function RestaurantsIndex(props) {
               />
               <h3>{restaurant.phone_number}</h3>
             </div>
-            {/* <h4 className="card-text text-center">{Restaurant.body}</h4> */}
-            <div className="d-grid gap-2 mx-auto">
-              <button
-                className="btn btn-info"
-                onClick={() => props.onSelectRestaurant(restaurant)}
-              >
-                MORE INFO
-              </button>
-            </div>
+            {/* <div className="d-grid gap-2 mx-auto"> */}
+            <button
+              className="btn btn-info"
+              onClick={() => props.onSelectRestaurant(restaurant)}
+            >
+              MORE INFO
+            </button>
           </div>
+          // </div>
         ))}
       </div>
     </div>

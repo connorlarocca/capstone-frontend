@@ -55,14 +55,6 @@
 //   );
 // }
 export function RestaurantsShow(props) {
-  const handleSubmit = (restaurant) => {
-    event.preventDefault();
-    const params = new FormData(restaurant.target);
-    props.onUpdaterestaurant(props.restaurant.id, params, () =>
-      restaurant.target.reset()
-    );
-  };
-
   const handleClickFavorite = () => {
     props.onCreateFavorite(props.restaurant);
   };
@@ -71,17 +63,22 @@ export function RestaurantsShow(props) {
   //   props.onDestroyrestaurant(props.restaurant);
   // };
 
-  return (
-    <div>
-      <h1>Restaurant information</h1>
-      <h2>{props.restaurant.name}</h2>
-      <p>Phone Number: {props.restaurant.phone_number}</p>
-      <p>Website: {props.restaurant.website}</p>
-      <img src={props.restaurant.image_url} width="300px" height="auto" />
+  const jwt = localStorage.getItem("jwt");
+  if (jwt) {
+    return (
+      <div>
+        <h1>Restaurant information</h1>
+        <h2>{props.restaurant.name}</h2>
+        <p>Phone Number: {props.restaurant.phone_number}</p>
+        <p>Website: {props.restaurant.website}</p>
+        <img src={props.restaurant.image_url} width="300px" height="auto" />
 
-      <button onClick={handleClickFavorite} type="submit">
-        Add to Favorites
-      </button>
-    </div>
-  );
+        <button onClick={handleClickFavorite} type="submit">
+          Add to Favorites
+        </button>
+      </div>
+    );
+  } else {
+    return <p>Please log in!</p>;
+  }
 }
