@@ -6,18 +6,26 @@ import { RestaurantsShow } from "./RestaurantsShow";
 import { RandomRestaurantsShow } from "./RandomRestaurantsShow";
 import { FavoritesShow } from "./FavoritesShow";
 import { FavoritesIndex } from "./FavoritesIndex";
+import { FavoritesHome } from "./FavoritesHome";
 import { RandomModal } from "./RandomModal";
 import { RandomRestaurantsIndex } from "./RandomRestaurantsIndex";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [restaurants, setRestaurants] = useState([]);
+  // const [randomRestaurant, setRandomRestaurant] = useState([]);
   const [isRestaurantShowVisible, setIsRestaurantShowVisible] = useState(false);
-  const [isRandomRestaurantShowVisible, setIsRandomRestaurantShowVisible] =
-    useState(false);
+  // const [isRandomRestaurantShowVisible, setIsRandomRestaurantShowVisible] =
+  //   useState(false);
   const [currentRestaurant, setCurrentRestaurant] = useState({});
-  const [currentRandomRestaurant, setCurrentRandomRestaurant] = useState({});
+  // const [currentRandomRestaurant, setCurrentRandomRestaurant] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [isFavoritesShowVisible, setIsFavoritesShowVisible] = useState(false);
+
+  const [currentRandomRestaurant, setCurrentRandomRestaurant] = useState({});
+  const [isRandomRestaurantShowVisible, setIsRandomRestaurantShowVisible] =
+    useState(false);
+  const [randomRestaurant, setRandomRestaurant] = useState([]);
 
   const handleIndexRestaurants = () => {
     console.log("handleIndexRestaurants");
@@ -28,7 +36,7 @@ export function Home() {
   };
 
   // const handleIndexRandomRestaurants = () => {
-  //   console.log("handleRandomButton");
+  //   console.log("handleIndexRandomRestaurants");
   //   axios.get("http://localhost:3000/random.json").then((response) => {
   //     console.log(response.data);
   //     setRandomRestaurants(response.data);
@@ -51,15 +59,15 @@ export function Home() {
     setCurrentRestaurant(restaurant);
   };
 
-  const handleShowRandomRestaurant = () => {
-    console.log("handleShowRandomRestaurant");
-    setIsRandomRestaurantShowVisible(true);
-    axios.get("http://localhost:3000/random.json").then((response) => {
-      console.log(response.data);
-      setCurrentRandomRestaurant(response.data);
-      console.log("Your random restaurant is:", currentRandomRestaurant);
-    });
-  };
+  // const handleShowRandomRestaurant = () => {
+  //   console.log("handleShowRandomRestaurant");
+  //   // axios.get("http://localhost:3000/random.json").then((response) => {
+  //   setIsRandomRestaurantShowVisible(true);
+  //   console.log(response.data);
+  //   setCurrentRandomRestaurant(response.data);
+  //   console.log("Your random restaurant is:", currentRandomRestaurant);
+  //   // });
+  // };
 
   // const handleShowRandomRestaurant = (randomRestaurant) => {
   //   console.log("handleShowRandomRestaurant", randomRestaurant);
@@ -122,31 +130,52 @@ export function Home() {
   //   });
   // };
 
-  // const handleShowFavorite = (favorite) => {
-  //   console.log("handleShowFavorite", favorite);
-  //   setIsFavoritesShowVisible(true);
-  //   setCurrentFavorite(favorite);
+  const handleShowFavorite = (favorite) => {
+    console.log("handleShowFavorite", favorite);
+    setIsFavoritesShowVisible(true);
+    setCurrentFavorite(favorite);
+  };
+
+  const handleDestroyFavorite = (favorite) => {
+    console.log("handleDestroyfavorite", favorite);
+    axios
+      .delete(`http://localhost:3000/favorites/${favorite.id}.json`)
+      .then((response) => {
+        setfavorites(
+          favorites.filter((favorite) => favorite.id !== favorite.id)
+        );
+        handleClose();
+      });
+  };
+
+  // const handleIndexRandomRestaurants = () => {
+  //   console.log("handleIndexRandomRestaurants");
+  //   axios.get("http://localhost:3000/random.json").then((response) => {
+  //     console.log(response.data);
+  //     setRandomRestaurant(response.data);
+  //   });
   // };
 
-  // const handleDestroyFavorite = (favorite) => {
-  //   console.log("handleDestroyfavorite", favorite);
-  //   axios
-  //     .delete(`http://localhost:3000/favorites/${favorite.id}.json`)
-  //     .then((response) => {
-  //       setfavorites(
-  //         favorites.filter((favorite) => favorite.id !== favorite.id)
-  //       );
-  //       handleClose();
-  //     });
+  // const handleShowRandomRestaurant = () => {
+  //   console.log("handleShowRandomRestaurant");
+  //   axios.get("http://localhost:3000/random.json").then((response) => {
+  //     // setIsRandomRestaurantShowVisible(true);
+  //     console.log(response.data);
+  //     setCurrentRandomRestaurant(randomRestaurant);
+  //     setRandomRestaurant(response);
+  //     console.log("Your random restaurant is:", currentRandomRestaurant);
+  //   });
+  // };
+
+  // const handleHideRandomRestaurant = () => {
+  //   setIsRandomRestaurantShowVisible(false);
   // };
 
   useEffect(handleIndexRestaurants, []);
   return (
     <div>
-      <RandomRestaurantsIndex
-        // randomRestaurants={randomRestaurants}
-        onSelectRandomRestaurant={handleShowRandomRestaurant}
-      />
+      <RandomRestaurantsIndex />
+
       {/* <RandomModal show={isRandomRestaurantShowVisible} onClose={handleClose}>
         <RandomRestaurantsShow
           randomRestaurant={currentRandomRestaurant}
@@ -169,7 +198,6 @@ export function Home() {
         favorites={favorites}
         onShowFavorite={handleShowFavorite}
       />{" "} */}
-
       {/* <Modal show={isFavoritesShowVisible} onClose={handleClose}>
         <FavoritesShow onDestroyFavorite={handleDestroyFavorite} />
       </Modal> */}

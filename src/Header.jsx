@@ -27,11 +27,6 @@ export function Header() {
     setIsRestaurantLoginVisible = true;
   };
 
-  const generateRandomId = () => {
-    const randomId = Math.floor(Math.random() * restaurants.length);
-    setRandomId(randomId);
-    const newLink = `http://localhost:3000/restaurants/${randomId}`;
-  };
   // const handleLogout = () => {
   //   event.preventDefault();
   //   delete axios.defaults.headers.common["Authorization"];

@@ -8,6 +8,7 @@ import { UserLogin } from "./UserLogin";
 import { RestaurantSignup } from "./RestaurantSignup";
 import { RestaurantLogin } from "./RestaurantLogin";
 import { RestaurantsNew } from "./RestaurantsNew";
+import { RandomRestaurantsShow } from "./RandomRestaurantsShow";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/restaurant_signup" element={<RestaurantSignup />} />
         <Route path="/restaurant_login" element={<RestaurantLogin />} />
         {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/random" element={<RandomRestaurantsShow />} />
       </Routes>
       <Footer />
     </BrowserRouter>
