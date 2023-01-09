@@ -9,6 +9,8 @@ import { RestaurantSignup } from "./RestaurantSignup";
 import { RestaurantLogin } from "./RestaurantLogin";
 import { RestaurantsNew } from "./RestaurantsNew";
 import { RandomRestaurantsShow } from "./RandomRestaurantsShow";
+import { LogoutLink } from "./LogoutLink";
+import { FavoritesIndex } from "./FavoritesIndex";
 
 function App() {
   return (
@@ -21,8 +23,9 @@ function App() {
         <Route path="/user_login" element={<UserLogin />} />
         <Route path="/restaurant_signup" element={<RestaurantSignup />} />
         <Route path="/restaurant_login" element={<RestaurantLogin />} />
-        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/random" element={<RandomRestaurantsShow />} />
+        <Route path="/logout" element={<LogoutLink />} />
+        <Route path="/favorites" element={<FavoritesIndex />} />
       </Routes>
       <Footer />
     </BrowserRouter>

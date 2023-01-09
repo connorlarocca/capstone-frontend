@@ -3,19 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export function RandomRestaurantsShow() {
-  // const [currentRandomRestaurant, setCurrentRandomRestaurant] = useState({});
-  // const [isRandomRestaurantShowVisible, setIsRandomRestaurantShowVisible] =
-  //   useState(false);
   const [randomRestaurant, setRandomRestaurant] = useState([]);
 
   const handleShowRandomRestaurant = () => {
     console.log("handleShowRandomRestaurant");
     axios.get("http://localhost:3000/random.json").then((response) => {
-      // setIsRandomRestaurantShowVisible(true);
       console.log(response.data);
       setRandomRestaurant(response.data);
-      // setCurrentRandomRestaurant(randomRestaurant);
-      // console.log("Your random restaurant is:", currentRandomRestaurant);
     });
   };
 
@@ -38,9 +32,14 @@ export function RandomRestaurantsShow() {
     );
   } else {
     return (
-      <h1 className="text-center">
-        Please log in to use the DECIDE4ME functionality!
-      </h1>
+      <div>
+        <h1 className="text-center">
+          Please log in to use the DECIDE4ME functionality!
+        </h1>
+        <li className="nav-item">
+          <Link to="/">Return Home</Link>
+        </li>
+      </div>
     );
   }
 }
