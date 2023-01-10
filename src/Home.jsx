@@ -6,7 +6,7 @@ import { RestaurantsShow } from "./RestaurantsShow";
 import { RandomRestaurantsShow } from "./RandomRestaurantsShow";
 import { FavoritesShow } from "./FavoritesShow";
 import { FavoritesIndex } from "./FavoritesIndex";
-import { FavoritesHome } from "./FavoritesHome";
+
 import { RandomModal } from "./RandomModal";
 import { RandomRestaurantsIndex } from "./RandomRestaurantsIndex";
 import { Link } from "react-router-dom";

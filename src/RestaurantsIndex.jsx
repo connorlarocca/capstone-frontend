@@ -13,7 +13,6 @@ export function RestaurantsIndex(props) {
                 className="card-img-top rounded mx-auto d-block"
                 alt=""
               />
-              <h3>{restaurant.phone_number}</h3>
             </div>
             {/* <div className="d-grid gap-2 mx-auto"> */}
             <button
