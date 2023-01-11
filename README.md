@@ -5,7 +5,7 @@ We've all been there. It's late, you and your friends are hungry...but for what?
 DECIDE 4 ME uses a Rails backend with a React frontend, and uses Bootstrap for some basic UI/aesthetics.
 
 ## Installation
-Important note: This is just the backend for the app! The frontend to the app is available here: https://github.com/connorlarocca/decide4me-backend
+Important note: This is just the backend for the app! The frontend to the app is available here: https://github.com/connorlarocca/decide4me-frontend
 
 Clone down the code into your desired folder, then run this command: 
 
