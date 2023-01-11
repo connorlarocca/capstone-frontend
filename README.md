@@ -28,6 +28,6 @@ You can view the app on http://localhost:5173.
 
 DECIDE 4 ME has several functionalities built into the backend that will be fully implemented in the future! Those include:
 
-a FULLY FUNCTIONAL favorites system, where all necessary CRUD actions can be utilized
-a seperate "portal" for restaurant accounts to add their restaurant/s and edit them accordingly
-a tagging system for both restaurants and users, including dietary restrictions and preferences for users, and accomodation tags for restaurants (with an important nod to spice lovers!)
+- a FULLY FUNCTIONAL favorites system, where all necessary CRUD actions can be utilized
+- a seperate "portal" for restaurant accounts to add their restaurant/s and edit them accordingly
+- a tagging system for both restaurants and users, including dietary restrictions and preferences for users, and accomodation tags for restaurants (with an important nod to spice lovers!)
